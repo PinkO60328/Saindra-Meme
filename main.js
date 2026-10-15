@@ -5,7 +5,10 @@
   document.querySelectorAll("[data-buy]").forEach(function(a){a.href=buy;});
   document.querySelectorAll("[data-x]").forEach(function(a){a.href=C.X_LINK;});
   document.querySelectorAll("[data-tg]").forEach(function(a){a.href=C.TELEGRAM_LINK;});
-  document.querySelectorAll("[data-scan]").forEach(function(a){if(valid)a.href="https://etherscan.io/token/"+ca;});
+  document.querySelectorAll("[data-scan]").forEach(function(a){
+    if(valid){a.href="https://etherscan.io/token/"+ca;a.style.display="";a.removeAttribute("aria-disabled");}
+    else{a.removeAttribute("href");a.style.display="none";a.setAttribute("aria-disabled","true");}
+  });
   document.querySelectorAll("[data-ca]").forEach(function(e){e.textContent=ca;});
   document.querySelectorAll("[data-copy]").forEach(function(b){b.addEventListener("click",function(){
     var done=function(){var t=b.textContent;b.textContent="Copied ♥";setTimeout(function(){b.textContent=t},1400)};
